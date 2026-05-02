@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panini World Cup 2026 - Figurinhas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Modo toque · Panini FIFA World Cup 2026 · 980 cromos</p>
+          <h1>Controle de figurinhas faltantes</h1>
+        </div>
+
+        <div class="summary-grid" aria-label="Resumo do álbum">
+          <article class="summary-card missing-card">
+            <span class="summary-label">Faltando</span>
+            <strong id="missingCount">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Completo</span>
+            <strong id="completePercent">0%</strong>
+          </article>
+          <article class="summary-card">
+            <span class="summary-label">Tenho álbum</span>
+            <strong id="ownedCount">0/0</strong>
+          </article>
+        </div>
+      </header>
+
+      <main>
+        <section class="progress-section" aria-label="Progresso geral">
+          <div class="progress-copy">
+            <span id="progressText">Nenhuma figurinha marcada ainda.</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <span id="progressBar"></span>
+          </div>
+        </section>
+
+        <section class="toolbar" aria-label="Filtros e ações">
+          <label class="field select-field">
+            <span>Seção</span>
+            <select id="sectionFilter">
+              <option value="all">Todas do grupo</option>
+            </select>
+          </label>
+
+          <div class="section-sort" role="group" aria-label="Ordenação do dropdown de seções">
+            <span>Ordem</span>
+            <button class="sort-option active" type="button" data-sort="album">Álbum</button>
+            <button class="sort-option" type="button" data-sort="alpha">A-Z</button>
+          </div>
+
+          <div class="segmented-control" role="group" aria-label="Status da figurinha">
+            <button class="segment active" type="button" data-status="all">Todas</button>
+            <button class="segment" type="button" data-status="missing">Faltantes</button>
+            <button class="segment" type="button" data-status="owned">Tenho</button>
+          </div>
+
+          <button class="ghost-button" id="copyMissing" type="button">Copiar faltantes</button>
+        </section>
+
+        <section class="section-navigator" aria-label="Navegação por grupos e seções">
+          <div class="group-tabs" id="groupTabs" role="group" aria-label="Grupos do álbum"></div>
+          <div class="section-list" id="sectionList" aria-label="Seções do grupo selecionado"></div>
+        </section>
+
+        <section class="grid-header">
+          <div>
+            <h2>Figurinhas</h2>
+            <p id="resultCount">0 itens encontrados</p>
+          </div>
+          <div class="bulk-actions">
+            <button type="button" id="markVisibleOwned">Marcar visíveis como tenho</button>
+            <button type="button" id="markVisibleMissing">Marcar visíveis como faltando</button>
+          </div>
+        </section>
+
+        <section class="sticker-grid" id="stickerGrid" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
